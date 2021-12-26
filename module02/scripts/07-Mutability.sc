@@ -43,3 +43,10 @@ m2 += 'g' -> 7 //equivalent to m2 = m2 + ('g' -> 7)
 m2
 println("--222---")
 m1 += 'g' -> 7 // += method on mutable Map
+
+val map = mutable.Map("a" -> 1)
+map("a") = 12
+map("aa") = 14 //key not found, so add this element to map
+map
+val map2 = Map("x" -> 1)
+//map2("x") = 11 CTE, no update method in immutable Map

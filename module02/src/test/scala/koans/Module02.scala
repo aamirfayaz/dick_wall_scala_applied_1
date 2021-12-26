@@ -112,26 +112,26 @@ class Module02 extends KoanSuite with Matchers with SeveredStackTraces {
 
     // replace the following with the correct code to convert tuple t
     // to a list of strings
-    val l = Nil
+    val l: List[String] = List(t._1.toString, t._2.toString, t._3.toString, t._4.toString, t._5)
 
     l should be (List("0", "u", "8", "1", "too"))
   }
 
   test ("Immutable set in var") {
-    var getSet = Set("Ready", "Steady")
+    var getSet: Set[String] = Set("Ready", "Steady")
 
-    // Add a line below to satisfy the test
-
+    // Add a line below to satisfy the test\
+    getSet += "Go!" //equivalent to getSet = getSet + "Go!"
     getSet should be (Set("Ready", "Steady", "Go!"))
     
     // What happens if you make the var a val above? Why?
   }
 
   test ("Mutable set in a val") {
-    var getSet = scala.collection.mutable.Set("Ready", "Steady")
+    val getSet = scala.collection.mutable.Set("Ready", "Steady")
 
     // Add a line below to satisfy the test
-
+    getSet += "Go!" //+= is a method on mutable set
     getSet should be (Set("Ready", "Steady", "Go!"))
 
     // what happens if you make the var a val above? Why? Is this a good idea?
@@ -144,15 +144,15 @@ class Module02 extends KoanSuite with Matchers with SeveredStackTraces {
     mutMap += (2 -> "Dos")
     mutMap += (3 -> "Tres")
 
-    mutMap(2) should be (__)
+    mutMap(2) should be ("Dos")
 
     mutMap += (2 -> "Two")
 
-    mutMap(2) should be (__)
+    mutMap(2) should be ("Two")
 
     // What happens if you uncomment the line below? Why?
-    // mutMap += (2 -> 2)
-    mutMap(2) should be (__)
+     //mutMap += (2 -> 2) CTE
+    mutMap(2) should be ("Two")
   }
 
   test ("Mutable map in a val") {
@@ -162,18 +162,18 @@ class Module02 extends KoanSuite with Matchers with SeveredStackTraces {
     mutMap += (2 -> "Dos")
     mutMap += (3 -> "Tres")
 
-    mutMap(2) should be (__)
+    mutMap(2) should be ("Dos")
 
     mutMap(2) = "Two"
 
-    mutMap(2) should be (__)
+    mutMap(2) should be ("Two")
 
     mutMap += (2 -> "Deux")
 
-    mutMap(2) should be (__)
+    mutMap(2) should be ("Deux")
 
     // What happens if you uncomment the line below? Why?
-    // mutMap += (2 -> 2)
-    mutMap(2) should be (__)
+     //mutMap += (2 -> 2) CTE
+    mutMap(2) should be ("Deux")
   }
 }
