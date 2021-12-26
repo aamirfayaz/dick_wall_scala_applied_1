@@ -51,6 +51,9 @@ val divided = try {
 }
 catch {
   case ae: ArithmeticException => 0
+} finally {
+  println("dick wall exception")
+  12
 }
 
 

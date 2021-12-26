@@ -5,7 +5,7 @@ val array2 = Array(1,2,3)
 val list2 = List("scooby", "dooby", "doo")
 
 def squareRootsOf(xs: List[Int]): List[Double] = {
-  for (x <- xs) yield math.sqrt(x)
+  for(i <- xs) yield math.sqrt(i)
 }
 
 squareRootsOf(List(1,2,3,4,5,6))
@@ -21,13 +21,14 @@ val lista = List(1,2,3)
 
 val listb = 4 :: 5 :: 6 :: Nil
 
-val listc = lista ::: listb
+val listc = lista.:::(listb)
+val listc2 = lista ::: listb
 
 // common beginner mistake:
 
 // val listd = lista :: listb
 
-val v = Vector(1,2,3,4)
+val v = Vector(1,2,3,4) // like an immutable array, fast ops
 
 def squareRootOfAll(xs: Seq[Int]): Seq[Double] =
   xs.map(x => math.sqrt(x))
@@ -39,4 +40,4 @@ squareRootOfAll(array2)
 
 val set1 = Set(1,2,3,1,2,4,5)
 
-// squareRootOfAll(set1) // does not compile
+ //squareRootOfAll(set1) // does not compile

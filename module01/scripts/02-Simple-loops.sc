@@ -13,3 +13,7 @@ do {
 
 val x = println("")
 
+"Hello World".collect {
+  case character if Character.isUpperCase(character) => character.toLower
+}
+

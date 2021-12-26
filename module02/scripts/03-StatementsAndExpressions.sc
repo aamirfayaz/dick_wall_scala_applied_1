@@ -6,7 +6,7 @@ if (a > b) a else b
 if (a > b) println(s"max is $a") else println(s"max is $b")
 
 var doIt: Boolean = true
-val result = while (doIt) {
+val result: Unit = while (doIt) {
   println("Hello")
   doIt = false
 }
@@ -22,7 +22,7 @@ val div = 0
 val n = try {
   x / div
 } catch {
-  case ex: ArithmeticException => 0
+  case _: ArithmeticException => 0
 }
 
 def add(a: Int, b: Int) = {

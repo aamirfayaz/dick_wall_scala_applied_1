@@ -15,10 +15,10 @@ def procedureSyntax(name: String) {
   println(s"hello $name")
 }
 
-def add(x: Int, y: Int) {
+def add(x: Int, y: Int)  {
   x + y
 }
-val res = add(3,4)
+val res: Unit = add(3,4)
 res
 
 

@@ -21,12 +21,12 @@ System.out println "hello"
 
 val arr = Array("scooby", "dooby", "doo")
 
-arr.apply(1)
+val yy : String = arr.apply(1)
 
-arr(0)
+val xx: String = arr(0)
 
 
-arr.update(0, "scrappy")
+val r: Unit = arr.update(0, "scrappy")
 
 arr(1) = "dappy"
 

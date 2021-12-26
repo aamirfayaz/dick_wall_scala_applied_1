@@ -6,7 +6,7 @@ arr(0) = "scrappy"
 arr(1) = "dappy"
 
 arr.mkString(" ")
-
+new Array[String](10) // java way
 // Lists and Vectors are not mutable
 
 val xs1 = List(1,2,3)
@@ -19,15 +19,15 @@ xs3 = xs2 ::: xs3  // because it's a var
 
 import scala.collection._
 
-val s1 = mutable.Set(1,2,3)
-var s2 = immutable.Set(1,2,3)
+val s1: mutable.Set[Int] = mutable.Set(1,2,3) //val and mutable
+var s2: Predef.Set[Int] = immutable.Set(1,2,3) //var and immutable
 
 // += on both types:
 
 s1 += 4  // calls += on mutable.Set
 s1
-
-s2 += 4  // turns into s2 = s2 + 4
+//rewriting rule kicks-in
+s2 += 4  // turns into s2 = s2 + 4 // not possible if s2 is val
 s2
 
 // Maps also may be either
@@ -36,7 +36,10 @@ val m1 = mutable.Map('a' -> 1, 'b' -> 2, 'c' -> 3)
 
 var m2 = immutable.Map('d' -> 4, 'e' -> 5, 'f' -> 6)
 
-m1 ++= m2
-m2 += 'g' -> 7
+m1 ++= m2 // calls ++= on mutable map, hence result map is mutable
+m1
+println("--111-------")
+m2 += 'g' -> 7 //equivalent to m2 = m2 + ('g' -> 7)
 m2
-
+println("--222---")
+m1 += 'g' -> 7 // += method on mutable Map

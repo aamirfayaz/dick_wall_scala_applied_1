@@ -4,14 +4,14 @@ def sumAndDifference(a: Int, b: Int): (Int, Int) = {
   (sum, difference)
 }
 
-val res = sumAndDifference(10, 5)
+val res: (Int, Int) = sumAndDifference(10, 5)
 
 res._1
 res._2
 
 val (sm, df) = sumAndDifference(10, 5)
 
-val (a,b,c,d,e) = (0, 'u', 8, 1, "too")
+val (a,b,c,d,e) = (0, 'u', 8.8, true, "too")
 
 1.+(2) //infix notation,
 /**
