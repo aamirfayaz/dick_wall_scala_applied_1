@@ -24,4 +24,5 @@ object Rational {
 val half = Rational(1, 2)
 
 half + 5
+//5 + half, doesn't work
 

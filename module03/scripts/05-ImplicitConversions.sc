@@ -1,3 +1,5 @@
+import scala.language.implicitConversions
+
 class Rational private (val n: Int, val d: Int) {
   require(d != 0, "Zero denominator!")
 

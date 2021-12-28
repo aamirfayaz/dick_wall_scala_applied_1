@@ -12,7 +12,7 @@ val demoWithFieldsAndMethods = new DemoWithFieldsAndMethods
 demoWithFieldsAndMethods.x
 demoWithFieldsAndMethods.timesY(4)
 
-class DemoWithParams(name: String) {
+class DemoWithParams(name: String) { //private this
   println(s"Constructing for $name")
 
   def sayHi(times: Int): Unit = {

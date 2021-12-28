@@ -1,4 +1,6 @@
 class Rational private (val n: Int, val d: Int) {
+
+  println("Always called")
   require(d != 0, "Zero denominator!")
 
   override def toString: String = s"R($n/$d)"
@@ -27,7 +29,10 @@ object Rational {
     new Rational(i, 1)
 }
 
+//as now constructors are private
+//val errorInitializing = new Rational(2,3)
 val fifth = Rational(1, 5)
+
 val five = Rational(5)
 
 // can no longer call new, it's private
