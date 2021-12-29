@@ -15,6 +15,8 @@ val un = println(x)
 un == ()
 
 
+
+
 class WriterOutput(writer: PrintWriter) {
   def write(s: String): Unit = writer.println(s)
 }
@@ -41,6 +43,7 @@ val ex2 = new PrintWriter(new File("ex2.txt"))
 
 val out2 = new WriterOutput2(ex2)
 
+//fluent API
 out2.write("Hello").write("to").write("you")
 
 ex2.close()
