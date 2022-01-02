@@ -28,6 +28,7 @@ def matchIt(x: Any): String = x match {
   case Nil => "The empty list"
   case 5 => "The number 5"
   case _: List[_] => "Some kind of list, not empty and not starting with 1"
+ // case anything => s"something else: $anything"
 }
 
 

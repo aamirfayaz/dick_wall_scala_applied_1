@@ -9,7 +9,7 @@ for (i <- 1 to 3; j <- 1 to 3) println(i * j)
 (1 to 3).foreach(i => (1 to 3).foreach(j => println(i * j)))
 
 for {
-  i <- 1 to 3
+  i <- 1 to 3 //we automatically get semicolon inference here
   j <- 1 to 3
 } {
   println(i * j)
@@ -62,8 +62,8 @@ filesHere.filter(_.getName.endsWith(".sc")).flatMap { file =>
 
 // for more than just looping:
 import scala.concurrent._
-import duration._
-import ExecutionContext.Implicits.global
+import scala.concurrent.duration._
+import scala.concurrent.ExecutionContext.Implicits.global
 
 val f1 = Future(1.0)
 val f2 = Future(2.0)
