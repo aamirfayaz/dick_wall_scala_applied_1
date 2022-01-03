@@ -35,6 +35,7 @@ FactSeqNested.factSeq(8)
 object FactSeqScoped {
 
   def factSeq(n: Int): List[Long] = {
+
     @tailrec
     def factSeqInner(acc: List[Long], ct: Int): List[Long] = {
       if (ct > n) acc else

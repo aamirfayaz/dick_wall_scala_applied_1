@@ -43,7 +43,7 @@ val ex2 = new PrintWriter(new File("ex2.txt"))
 
 val out2 = new WriterOutput2(ex2)
 
-//fluent API
+//fluent API cheaply
 out2.write("Hello").write("to").write("you")
 
 ex2.close()
