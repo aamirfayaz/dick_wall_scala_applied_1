@@ -9,6 +9,7 @@ multiplyFunction(2, 3)
 
 val nums = (1 to 5).toList
 
+nums.map(x => "hi" * x)
 nums.map(x => x * x)
 
 nums.map(x => x * 3)
