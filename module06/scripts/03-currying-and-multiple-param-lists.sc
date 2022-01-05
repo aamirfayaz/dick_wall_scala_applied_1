@@ -1,3 +1,4 @@
+
 val add3: (Int, Int, Int) => Int = (a, b, c) => a + b + c
 
 val add3curried = add3.curried

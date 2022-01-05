@@ -7,13 +7,15 @@ add6and3(5)
 def add3Method(a: Int, b: Int, c: Int) = a + b + c
 
 val add4and7 = add3Method(4, _: Int, 7)
+val add4and7Again = add3Method(4, _, 7)
 
 add4and7(2)
+add4and7Again(2)
 
-val add3Functionv1 = add3Method(_, _, _)
+val add3Functionv1: (Int, Int, Int) => Int = add3Method(_, _, _)
 add3Functionv1(1,2,3)
 
-val add3Functionv2 = add3Method _
+val add3Functionv2: (Int, Int, Int) => Int = add3Method _ //eta expansion
 add3Functionv2(1,2,3)
 
 def compareTriplets(xs: List[Int], compare: (Int, Int, Int) => Int): List[Int] = {
@@ -26,5 +28,9 @@ val nums = (1 to 10).toList
 
 compareTriplets(nums, add3Functionv1)
 compareTriplets(nums, add3Functionv2)
-compareTriplets(nums, add3Method)  // eta expansion
+compareTriplets(nums, add3Method)  // eta expansion by compiler
 
+def met[A](a: A, b: A, c: A) = ???
+
+val ff = met[Int](1, _, 2)
+val gg: Int => Nothing = ff
