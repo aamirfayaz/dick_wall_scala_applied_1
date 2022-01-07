@@ -11,7 +11,8 @@ val add4and7Again = add3Method(4, _, 7)
 
 add4and7(2)
 add4and7Again(2)
-
+//below not fully partially applied function, as we are
+//not applying any of the arguments
 val add3Functionv1: (Int, Int, Int) => Int = add3Method(_, _, _)
 add3Functionv1(1,2,3)
 
@@ -30,7 +31,7 @@ compareTriplets(nums, add3Functionv1)
 compareTriplets(nums, add3Functionv2)
 compareTriplets(nums, add3Method)  // eta expansion by compiler
 
-def met[A](a: A, b: A, c: A) = ???
 
-val ff = met[Int](1, _, 2)
-val gg: Int => Nothing = ff
+//answer this
+val zipped: List[(Int, Int)] = List(1,2,3).zip(List(2,3,4))
+zipped.map{case (x, y) => x * y} // why case is needed here ::TODO, find in partial functions

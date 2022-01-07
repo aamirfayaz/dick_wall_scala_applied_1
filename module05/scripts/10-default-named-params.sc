@@ -9,7 +9,9 @@ greet(name = "Fred")
 
 // idiomatically this is good for flags:
 
-def thingy(isCold: Boolean, isBroken: Boolean): Unit = {}
+def thingy(isCold: Boolean, isBroken: Boolean): Unit = {
+  println(s"Cold: $isCold, isBroken: $isBroken")
+}
 
 thingy(true, false) // doesn't tell us much
 thingy(isCold = true, isBroken = false) // is much more readable
@@ -31,5 +33,7 @@ force(acceleration = 2 * gravity)
 force(acceleration = gravity / 13.0, mass = 100)
 
 def factSeq(n: Int, acc: List[Long] = List(1L), ct: Int = 2): List[Long] = {
-  if (ct > n) acc else factSeq(n, acc = ct * acc.head :: acc, ct = ct + 1)
+  if (ct > n) acc else factSeq(n = n, acc = ct * acc.head :: acc, ct = ct + 1)
 }
+factSeq(5)
+

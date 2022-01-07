@@ -15,7 +15,9 @@ def greet(greeting: String, names: String*): Seq[String] = {
   for (name <- names) yield s"$greeting $name"
 }
 
-greet("Hi", "Fred", "Julie", "Kim")
+
+greet("Hi")
+//return type is ArrayBuffer as T* is taken as Array[]
 
 
 // greet a seq of names:
@@ -25,3 +27,4 @@ val names = List("Fred", "Julie", "Kim")
 // greet("Hi", names)  // does not compile
 
 greet("Hi", names: _*)  // expansion operator
+//name: _* , here List (passed collection) is retained, so return type is List

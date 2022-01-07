@@ -17,7 +17,7 @@ val pf2: PartialFunction[Int, Int] = {
 pf2.isDefinedAt(5)
 pf2.isDefinedAt(-5)
 
-nums.collect(pf2)
+nums.collect(pf2) //map + filter
 
 val a = 4
 
