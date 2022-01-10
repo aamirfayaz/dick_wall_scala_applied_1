@@ -103,13 +103,18 @@ class Module05Solutions extends KoanSuite with Matchers with SeveredStackTraces 
     // If you have trouble with the recursive call, check the argument expansion slide for help
     // Uncomment the tests below to make sure the method works.
 
-    def listOfLists(theList: String*): List[List[String]] = {
-      if (theList.isEmpty) Nil
-      else theList.toList :: listOfLists(theList.tail: _*)
+    def listOfLists(varArgs: String*): List[List[String]] = {
+      def inner(acc: List[List[String]], theList: List[String]):List[List[String]] = {
+        if (theList.isEmpty) acc
+        else {
+          inner(theList :: acc, theList.tail)
+        }
+      }
+      inner(Nil, varArgs.toList)
     }
 
-    listOfLists("Hello", "World") should be (List(List("Hello", "World"), List("World")))
-    listOfLists("Hello", "There", "World") should be (List(List("Hello", "There", "World"), List("There", "World"), List("World")))  
+    listOfLists("Hello", "World") equals  (List(List("Hello", "World"), List("World")))
+    listOfLists("Hello", "There", "World") equals  (List(List("Hello", "There", "World"), List("There", "World"), List("World")))
 
     // is this implementation of listOfLists properly recursive? If not, why not?
   }

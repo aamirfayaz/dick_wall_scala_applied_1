@@ -4,15 +4,21 @@ import scala.io.Source
 def fileContainsQuestion(file: File): Boolean = {
   val source = Source.fromFile(file)
 
-  try {
+/*  try {
     source.getLines().toSeq.headOption.map { line =>
       line.trim.endsWith("?")
     }.getOrElse(false)
+  } finally source.close()*/
+
+  try {
+    source.getLines().toSeq.headOption.exists { line =>
+      line.trim.endsWith("?")
+    }
   } finally source.close()
 }
 
 // change this to the location of your project files
-val projectDir = "/home/dwall/dev/Scala/Training/scala-advanced-training/exercises-applied"
+val projectDir = "/home/shehzal/code/dick_wall_scala_applied_1"
 
 val fileLoc = new File(projectDir)
 

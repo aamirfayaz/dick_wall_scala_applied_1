@@ -32,6 +32,13 @@ for (name <- Seq("caesar.shkspr", "hamlet.shkspr", "romeo.shkspr")) {
 val hamlet = new File(fileLoc, "hamlet.shkspr")
 
 // find most common letter
+
+val ff:String => Char = { line =>
+  val letters = line.toLowerCase.filterNot(_ == ' ').toSeq
+  val grouped = letters.groupBy(identity)
+  grouped.maxBy { case (char, seq) => seq.length }._1
+}
+
 withFileContents(hamlet, { line =>
   val letters = line.toLowerCase.filterNot(_ == ' ').toSeq
   val grouped = letters.groupBy(identity)
