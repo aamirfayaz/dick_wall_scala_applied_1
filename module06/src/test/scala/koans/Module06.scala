@@ -17,8 +17,8 @@ class Module06 extends KoanSuite with Matchers with SeveredStackTraces {
     // odd numbers (for the first functions) and even numbers (for the second function) so that the
     // tests pass
 
-    def containsOdd(nums: List[Int]): Boolean = true
-    def containsEven(nums: List[Int]): Boolean = true
+    def containsOdd(nums: List[Int]): Boolean = nums.exists(_ % 2 != 0)
+    def containsEven(nums: List[Int]): Boolean = nums.exists(_ % 2 == 0)
 
     containsOdd(List(2,4,6)) should be (false)
     containsEven(List(1,3,5)) should be (false)
@@ -54,13 +54,18 @@ class Module06 extends KoanSuite with Matchers with SeveredStackTraces {
     // is true, otherwise do nothing. For now, assume that the operation takes no arguments and has no
     // return (Unit).
 
+    def onlyIfTrue(pred: => Boolean)(op: => Unit) = {
+      if(pred) {
+        op
+      }
+    }
 
-    /* val numList = List (-1, 0, -2, 3, -4, 5)
+     val numList = List (-1, 0, -2, 3, -4, 5)
     var numberBelowZero = 0
 
-    numList.foreach { n => onlyIfTrue(n < 0) {numberBelowZero += 1 } }
+    numList.foreach(n => onlyIfTrue(n < 0) {numberBelowZero += 1 } )
 
-    numberBelowZero should be (3) */
+    numberBelowZero should be (3)
   }
 
   // extra credit - the above exercise is only present to get you used to by-name and curried functions

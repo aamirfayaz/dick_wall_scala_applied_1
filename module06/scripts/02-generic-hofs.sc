@@ -39,7 +39,7 @@ val ff:String => Char = { line =>
   grouped.maxBy { case (char, seq) => seq.length }._1
 }
 
-withFileContents(hamlet, { line =>
+withFileContents[Char](hamlet, { line =>
   val letters = line.toLowerCase.filterNot(_ == ' ').toSeq
   val grouped = letters.groupBy(identity)
   grouped.maxBy { case (char, seq) => seq.length }._1
